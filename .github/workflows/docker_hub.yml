@@ -45,7 +45,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ github.repository }}:latest
-            ${{ github.repository }}:${{ github.sha }}
-          cache-from: type=registry,ref=${{ github.repository }}:buildcache
-          cache-to: type=registry,ref=${{ github.repository }}:buildcache,mode=max
+            DOCKER_IMAGE_NAME:latest
+            DOCKER_IMAGE_NAME:${{ github.sha }}
+          cache-from: type=registry,ref=DOCKER_IMAGE_NAME:buildcache
+          cache-to: type=registry,ref=DOCKER_IMAGE_NAME:buildcache,mode=max
